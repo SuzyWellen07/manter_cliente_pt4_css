@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="page">
+
+  <h3>Seja bem-vindo(a)!</h3>
+
+  <aside class="menu" style="width: max-content;">
+    <p class="menu-label">
+      CLIENTES
+    </p>
+    <ul class="menu-list">
+      <li><a href="{{'/cliente/findall'}}">Lista de clientes</a></li></li>
+      <li><a href="{{'/cliente/add'}}">Cadastro de cliente</a></li>
+    </ul>
+    <p class="menu-label">
+      FORNECEDORES
+    </p>
+    <ul class="menu-list">
+      <li><a href="{{'/fornecedor/findall'}}">Lista de fornecedores</a></li>
+      <li><a href="{{'/fornecedor/add'}}">Cadastro de fornecedor</a></li>
+    </ul>
+    <p class="menu-label">
+      PRODUTOS
+    </p>
+    <ul class="menu-list">
+      <li><a href="{{ '/produto/findall' }}">Lista de produtos</a></li>
+      <li><a href="{{ '/produto/add' }}">Cadastro de produto</a></li>
+    </ul>
+    <p class="menu-label">
+      Administração
+    </p>
+    <ul class="menu-list">
+      <li><a href="{{'/restore'}}">Restaurar Database</a></li>
+    </ul>
+    
+  </aside>
+
+</div>
+{% endblock %}

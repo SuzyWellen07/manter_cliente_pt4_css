@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="page">
+  <h3 class="mt-3">Produtos</h3>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Preço</th>
+        <th>Quantidade</th>
+        <th>Data de Cadastro</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for cli in produtos %}
+      <tr>
+        <td> {{ cli.id }} </td>
+        <td> {{ cli.nome }} </td>
+        <td> {{ cli.descricao }} </td>
+        <td> {{ cli.preco }} </td>
+        <td> {{ cli.quantidade }} </td>
+        <td> {{ cli.datetime }} </td>
+        <td>
+          <div>
+            <a href="/produto/delete/{{cli.id}}">[Excluir]</a> |
+            <a href="/produto/edit/{{cli.id}}">[Editar]</a>
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% include 'buscar-produto.html' %}
+</div>
+{% endblock %}

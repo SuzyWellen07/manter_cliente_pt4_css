@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="page">
+
+  {% if cliente %}
+  <h3 class="mb-3 mt-3">Cliente encontrado:</h3>
+  <div>
+    <div class="card-body">
+      <p class="card-text">Nome: {{ cliente[1] }} </p>
+      <p class="card-text">CPF: {{ cliente[2] }} </p>
+      <p class="card-text">E-mail: {{ cliente[3] }} </p>
+      <p class="card-text">ID: {{ cliente[0] }} </p>
+    </div>
+  </div>
+
+  {% else %}
+  <h3 class="mb-3 mt-3 is-danger">Cliente não encontrado!</h3>
+  {% include 'buscar-cliente.html' %}
+  {% endif %}
+</div>
+{% endblock %}

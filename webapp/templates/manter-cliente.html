@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="page">
+  <h3 class="mt-3">Clientes</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>E-mail</th>
+        <th>Data de Cadastro</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for cli in clientes %}
+      <tr>
+        <td> {{ cli[0] }} </td>
+        <td> {{ cli[1] }} </td>
+        <td> {{ cli[2] }} </td>
+        <td> {{ cli[3] }} </td>
+        <td> {{ cli[4] }} </td>
+        <td>
+          <div>
+            <a href="/delete/{{cli[0]}}">[Excluir]</a> |
+            <a href="/cliente/edit/{{cli[0]}}">[Editar]</a>
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% include 'buscar-cliente.html' %}
+</div>
+{% endblock %}

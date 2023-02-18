@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="page">
+  <h3 class="mt-3">Fornecedores</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>CNPJ</th>
+        <th>Site</th>
+        <th>Pedidos</th>
+        <th>Data de Cadastro</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for cli in fornecedores %}
+      <tr>
+        <td> {{ cli.id }} </td>
+        <td> {{ cli.nome }} </td>
+        <td> {{ cli.cnpj }} </td>
+        <td> {{ cli.site }} </td>
+        <td> {{ cli.pedidos }} </td>
+        <td> {{ cli.datetime }} </td>
+        <td>
+          <div>
+            <a href="/fornecedor/delete/{{ cli.id }}">[Excluir]</a> |
+            <a href="/fornecedor/edit/{{ cli.id }}">[Editar]</a>
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% include 'buscar-fornecedor.html' %}
+</div>
+{% endblock %}

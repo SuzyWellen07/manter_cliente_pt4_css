@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="page">
+
+  {% if produto %}
+  <h3 class="mb-3 mt-3">Produto encontrado:</h3>
+  <div>
+    <div class="card-body">
+      <p class="card-text">Nome: {{ produto.nome }} </p>
+      <p class="card-text">Descrição: {{ produto.descricao }} </p>
+      <p class="card-text">Preço: {{ produto.preco }} </p>
+      <p class="card-text">Quantidade: {{ produto.quantidade }} </p>
+      <p class="card-text">ID: {{ produto.id }} </p>
+    </div>
+  </div>
+
+  {% else %}
+  <h3 class="mb-3 mt-3 is-danger">Produto não encontrado!</h3>
+  {% include 'buscar-produto.html' %}
+  {% endif %}
+</div>
+{% endblock %}

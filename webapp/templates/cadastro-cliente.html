@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="page">
+
+  {% if cliente %}
+  <h3 class="mt-3 mb-3">Atualizar cliente</h3>
+  {% else %}
+  <h3 class="mt-3 mb-3">Cadastro cliente</h3>
+  {% endif %}
+  
+  <div style="width: max(420px);">
+    <form class="" action="/cliente/save" method="POST">
+      {% if cliente %}
+      <input class="input" type="hidden" name="id" value="{{ cliente[0] }}">
+      {% endif %}
+
+      <div class="field">
+        <label class="label">Nome:</label>
+        <div class="control">
+          <input class="input" type="text" value="{{ cliente[1] }}" name="nome" autocomplete="off" minlength="2"
+            required="required" />
+        </div>
+      </div>
+      
+      <div class="field">
+        <label class="label">CPF:</label>
+        <div class="control">
+          <input class="input" type="text" value="{{ cliente[2] }}" name="cpf" autocomplete="off" required="required" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">E-mail:</label>
+        <div class="control">
+          <input class="input" type="text" value="{{ cliente[3] }}" name="email" autocomplete="off" required="required"/>
+        </div>
+      </div>
+
+      {% if cliente %}
+      <input class="button is-info mt-3" type="submit" value="Atualizar" />
+      {% else %}
+      <input class="button is-info mt-3" type="submit" value="Adicionar" />
+      {% endif %}
+    </form>
+  </div>
+
+</div>
+{% endblock %}

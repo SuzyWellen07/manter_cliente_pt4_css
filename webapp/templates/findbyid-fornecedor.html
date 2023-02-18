@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="page">
+
+  {% if fornecedor %}
+  <h3 class="mb-3 mt-3">Fornecedor encontrado:</h3>
+  <div>
+    <div class="card-body">
+      <p class="card-text">Nome: {{ fornecedor.nome }} </p>
+      <p class="card-text">CNPJ: {{ fornecedor.cnpj }} </p>
+      <p class="card-text">Site: {{ fornecedor.site }} </p>
+      <p class="card-text">Pedidos: {{ fornecedor.pedidos }} </p>
+      <p class="card-text">ID: {{ fornecedor.id }} </p>
+    </div>
+  </div>
+
+  {% else %}
+  <h3 class="mb-3 mt-3 is-danger">Fornecedor não encontrado!</h3>
+  {% include 'buscar-fornecedor.html' %}
+  {% endif %}
+</div>
+{% endblock %}

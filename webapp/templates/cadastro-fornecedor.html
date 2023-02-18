@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="page">
+
+  {% if fornecedor %}
+  <h3>Atualizar fornecedor</h3>
+  {% else %}
+  <h3>Cadastro fornecedor</h3>
+  {% endif %}
+
+  <div style="width: max(420px);">
+    <form class="" action="/fornecedor/save" method="POST">
+      {% if fornecedor %}
+      <input type="hidden" name="id" value="{{ fornecedor.id }}">
+      {% endif %}
+
+      <div class="field">
+        <label class="label">Nome:</label>
+        <div class="control">
+          <input class="input" type="text" value="{{ fornecedor.nome }}" name="nome" autocomplete="off" minlength="2"
+            required="required" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">CNPJ:</label>
+        <div class="control">
+          <input class="input" type="text" value="{{ fornecedor.cnpj }}" name="cnpj" autocomplete="off"
+            required="required" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Site:</label>
+        <div class="control">
+          <input class="input" type="text" value="{{ fornecedor.site }}" name="site" autocomplete="off"
+            required="required" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Pedidos:</label>
+        <div class="control">
+          <input class="input" type="number" value="{{ fornecedor.pedidos }}" name="pedidos" autocomplete="off"
+            required="required" />
+        </div>
+      </div>
+
+      {% if fornecedor %}
+      <input class="button is-info mt-3" type="submit" value="Atualizar" />
+      {% else %}
+      <input class="button is-info mt-3" type="submit" value="Adicionar" />
+      {% endif %}
+    </form>
+  </div>
+
+</div>
+{% endblock %}
